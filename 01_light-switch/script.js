@@ -12,5 +12,4 @@ function toggleLight() {
     body.className = "body dark";
     btn.className += " lightenedBorder";
   }
-  console.log(body);
 }
