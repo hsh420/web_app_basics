@@ -37,7 +37,6 @@ cheap.addEventListener("click", (event) => {
 
 good.addEventListener("click", (event) => {
   if (cheap.checked === true && fast.checked === true) {
-    console.log("good geht in die if-Schleife");
     switch (true) {
       case lastClicked === "cheap":
         cheap.checked = false;

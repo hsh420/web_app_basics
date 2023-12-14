@@ -1,0 +1,68 @@
+html {
+  font-size: 36px;
+  font-family: monospace;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: gold;
+  padding: 50px;
+}
+
+.clock {
+  position: relative;
+  width: 40vmin;
+  height: 40vmin;
+  background-color: snow;
+  border: 3px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px #333;
+}
+
+.digi-clock {
+  margin-top: 1rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.clock > * {
+  position: absolute;
+  border-radius: 2px;
+  background-color: black;
+}
+
+.clock__circle {
+  width: 5%;
+  height: 5%;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.clock__hours {
+  width: 5px;
+  height: 25%;
+  transform: rotate(var(--hours)) translateY(-50%);
+}
+
+.clock__minutes {
+  width: 5px;
+  height: 48%;
+  transform: rotate(var(--minutes)) translateY(-50%);
+}
+
+.clock__seconds {
+  width: 2px;
+  height: 48%;
+  transform: rotate(var(--seconds)) translateY(-50%);
+}
+
+.digi-clock__dots--hidden {
+  visibility: hidden;
+}
