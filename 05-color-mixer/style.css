@@ -10,7 +10,7 @@ header {
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -64,7 +64,11 @@ input[type="range"]::-moz-range-thumb {
   color: blue;
 }
 
+#rgbCode {
+  width: 200px;
+}
+
 .main {
   background-color: rgb(50, 130, 255);
-  height: 95vh;
+  height: 93.5vh;
 }

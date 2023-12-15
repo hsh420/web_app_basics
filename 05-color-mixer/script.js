@@ -8,7 +8,12 @@ let rgbCode = red + green + blue;
 
 red.addEventListener("change", (event) => {
   displayedRgbCode.innerText =
-    event.explicitOriginalTarget.value + ", " + green.value + ", " + blue.value;
+    "RGB-Code: " +
+    event.explicitOriginalTarget.value +
+    ", " +
+    green.value +
+    ", " +
+    blue.value;
   main.style.backgroundColor =
     "rgb(" +
     event.explicitOriginalTarget.value +
@@ -21,7 +26,12 @@ red.addEventListener("change", (event) => {
 
 green.addEventListener("change", (event) => {
   displayedRgbCode.innerText =
-    red.value + ", " + event.explicitOriginalTarget.value + ", " + blue.value;
+    "RGB-Code: " +
+    red.value +
+    ", " +
+    event.explicitOriginalTarget.value +
+    ", " +
+    blue.value;
   main.style.backgroundColor =
     "rgb(" +
     red.value +
@@ -34,7 +44,12 @@ green.addEventListener("change", (event) => {
 
 blue.addEventListener("change", (event) => {
   displayedRgbCode.innerText =
-    red.value + ", " + green.value + ", " + event.explicitOriginalTarget.value;
+    "RGB-Code: " +
+    red.value +
+    ", " +
+    green.value +
+    ", " +
+    event.explicitOriginalTarget.value;
   main.style.backgroundColor =
     "rgb(" +
     red.value +
