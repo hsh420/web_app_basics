@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>To-Do-App</h1>
+    </header>
+    <main>
+        <div class="selectContainer" id="selectContainer">
+            <fieldset>
+                <legend>To-Dos auswählen...</legend>
+                <div class="select">
+                    <input type="radio" name="select" id="selectAll" value="all" checked>
+                    <label for="selectAll">Alle auswählen</label>
+                </div>
+                <div class="select">
+                    <input type="radio" name="select" id="selectOpen" value="open">
+                    <label for="selectOpen">Offene To-Dos</label>
+                </div>
+                <div class="select">
+                    <input type="radio" name="select" id="selectDone" value="done">
+                    <label for="selectDone">Erledigte To-Dos</label>
+                </div>
+            </fieldset>
+        </div>
+        <div class="flex">
+            <button type="button" id="resetDone" onclick="resetDone()">Erledigte To-Dos entfernen</button>
+        </div>
+        <div class="flex">
+            <input type="text" name="add" id="add" placeholder="To-Do ergänzen...">
+            <label for="add"><button type="button" id="addBtn">Hinzufügen</button></label>
+        </div>
+        <div class="flex">
+            <ul id="list"></ul>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
