@@ -373,6 +373,15 @@ header > h1 {
   margin: 0 auto;
 }
 
+.select > input {
+  accent-color: chocolate;
+}
+
+label,
+input {
+  cursor: pointer;
+}
+
 .flex {
   display: flex;
   justify-content: center;
@@ -390,7 +399,7 @@ li > input {
 }
 
 body {
-  background-image: linear-gradient(to bottom left, tan, burlywood);
+  background: linear-gradient(tan 20%, burlywood 60%);
 }
 
 legend {
@@ -405,6 +414,7 @@ fieldset {
   box-shadow: 0 0 15px 0 antiquewhite;
   margin-top: 10px;
   font-weight: 700;
+  border: 2px solid chocolate;
 }
 
 button {
@@ -413,6 +423,7 @@ button {
   border: 2px solid chocolate;
   color: chocolate;
   background-color: antiquewhite;
+  cursor: pointer;
 }
 
 button:hover {
@@ -445,4 +456,8 @@ li {
 li + li {
   margin-top: 10px;
   border-top: 2px dashed #000;
+}
+
+li > input {
+  accent-color: chocolate;
 }
