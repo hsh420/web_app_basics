@@ -1,4 +1,5 @@
 let data = [];
+let selected = "all";
 
 checkForData();
 
@@ -16,20 +17,17 @@ const list = document.querySelector("#list");
 const input = document.querySelector("#add");
 const addBtn = document.querySelector("#addBtn");
 
-renderToDos();
+renderToDos(data);
 
-function renderToDos(arr) {
-  if (arr === undefined) {
-    arr = JSON.parse(localStorage.getItem("data"));
-  }
+function renderToDos(data) {
   list.innerHTML = "";
-  if (arr === undefined || arr.length === 0) {
+  if (data === undefined || data.length === 0) {
     const li = document.createElement("li");
     const placeholder = document.createTextNode("Noch keine To-Dos...");
     li.appendChild(placeholder);
     list.appendChild(li);
   } else {
-    arr.forEach((element) => {
+    data.forEach((element) => {
       const li = document.createElement("li");
       const text = document.createTextNode(element.description);
       const checkbox = document.createElement("input");
@@ -49,11 +47,14 @@ select.addEventListener("input", (event) => {
   event.preventDefault();
   const value = event.target.value;
   if (value === "open") {
-    filterOpenToDos(data);
+    filterOpenToDos();
+    selected = "open";
   } else if (value === "done") {
-    filterDoneToDos(data);
+    filterDoneToDos();
+    selected = "done";
   } else {
-    renderToDos();
+    renderToDos(data);
+    selected = "all";
   }
 });
 
@@ -80,6 +81,16 @@ function filterOpenToDos() {
 }
 
 addBtn.addEventListener("click", (event) => {
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].description.toLowerCase() === input.value.toLowerCase()) {
+      window.alert("To Do existiert bereits!");
+      return;
+    }
+  }
+  if (input.value === "") {
+    window.alert("Beschreibung fehlt!");
+    return;
+  }
   const newToDo = {
     description: input.value,
     id: new Date().getTime(),
@@ -92,7 +103,6 @@ addBtn.addEventListener("click", (event) => {
 });
 
 list.addEventListener("change", (event) => {
-  console.log(event.target.previousSibling.data);
   data.forEach((element) => {
     if (
       element.description === event.target.previousSibling.data &&
@@ -107,13 +117,21 @@ list.addEventListener("change", (event) => {
     }
   });
   localStorage.setItem("data", JSON.stringify(data));
-  renderToDos();
+  if (selected === "done") {
+    filterDoneToDos();
+  } else if (selected === "open") {
+    filterOpenToDos();
+  } else {
+    renderToDos(data);
+  }
 });
 
 function resetDone() {
-  const newData = data.filter((element) => {
-    return element.done === false;
-  });
-  localStorage.setItem("data", JSON.stringify(newData));
-  renderToDos(newData);
+  if (window.confirm("Erledigte To-Dos wirklich löschen?")) {
+    const newData = data.filter((element) => {
+      return element.done === false;
+    });
+    localStorage.setItem("data", JSON.stringify(newData));
+    renderToDos(newData);
+  }
 }
