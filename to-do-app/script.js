@@ -108,11 +108,13 @@ addBtn.addEventListener("click", (event) => {
   data.push(newToDo);
   input.value = "";
   localStorage.setItem("data", JSON.stringify(data));
+  select.children[0].elements[0].checked = true;
   renderToDos(data);
 });
 
 // Status der To-Dos ändern und Änderungen erfassen; Daten jeweils aktuell laden
 list.addEventListener("change", (event) => {
+  checkForData();
   data.forEach((element) => {
     if (
       element.description === event.target.previousSibling.data &&
@@ -144,6 +146,7 @@ function resetDone() {
       return element.done === false;
     });
     localStorage.setItem("data", JSON.stringify(newData));
+    select.children[0].elements[0].checked = true;
     renderToDos(newData);
   }
 }
