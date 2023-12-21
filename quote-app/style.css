@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  background-color: thistle;
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: linear-gradient(-45deg, aliceblue, lightblue);
+}
+
+button {
+  padding: 10px;
+  height: 50px;
+  background-color: darkgoldenrod;
+  border: 2px solid whitesmoke;
+  font-weight: 500;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+button:hover {
+  background-color: whitesmoke;
+  border: 2px solid darkgoldenrod;
+  box-shadow: 0 0 10px 2px whitesmoke;
+  color: black;
+}
+
+main {
+  padding: 100px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote {
+  font-size: xx-large;
+  font-style: italic;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.author {
+  font-size: larger;
+  margin: 0 auto;
+  margin-top: 15px;
+}
