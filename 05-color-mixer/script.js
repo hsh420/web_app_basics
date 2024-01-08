@@ -3,6 +3,7 @@ const green = document.getElementById("green");
 const blue = document.getElementById("blue");
 const main = document.getElementById("main");
 const displayedRgbCode = document.getElementById("rgbCode");
+const btn = document.getElementById("btn");
 
 let rgbCode = red + green + blue;
 
@@ -58,4 +59,24 @@ blue.addEventListener("change", (event) => {
     ", " +
     event.explicitOriginalTarget.value +
     ")";
+});
+
+btn.addEventListener("click", () => {
+  const apiRgb = fetch("https://dummy-apis.netlify.app/api/color");
+  apiRgb
+    .then((response) => {
+      if (response.ok === true) {
+        return response.json();
+      }
+    })
+    .then((data) => {
+      console.log(data);
+      displayedRgbCode.innerText =
+        "RGB-Code: " + data.rgb.r + ", " + data.rgb.g + ", " + data.rgb.b;
+      main.style.backgroundColor =
+        "rgb(" + data.rgb.r + ", " + data.rgb.g + ", " + data.rgb.b + ")";
+      red.value = data.rgb.r;
+      green.value = data.rgb.g;
+      blue.value = data.rgb.b;
+    });
 });
